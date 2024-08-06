@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: #fff200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1310px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.game {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px 0;
+}
+
+.game__field {
+  display: grid;
+  grid-template-rows: repeat(4, 100px);
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.game__field--easy {
+  grid-template-columns: repeat(4, 100px);
+}
+
+.game__field--medium {
+  grid-template-columns: repeat(5, 100px);
+}
+
+.game__field--hard {
+  grid-template-columns: repeat(6, 100px);
+}
+
+.game__card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #e8d435;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  transition: transform .5s ease;
+  cursor: pointer;
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  transition: transform 1s ease;
+}
+
+.card__front {
+  font-size: 86px;
+  color: #ffffff;
+}
+
+.card__back {
+  padding: 10px;
+  transform: rotateY(180deg);
+}
+
+.card__back img {
+  width: 100%;
+  height: 100%;
+}
+
+.card.card--open .card__front {
+  transform: rotateY(180deg);
+}
+
+.card.card--open .card__back {
+  transform: rotateY(360deg);
+}
+
+.card--open {
+  cursor: default;
+}
+
+.card--success {
+  transform: scale(0);
+  transition: transform 1s ease;
+}
+
+/* Меню */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__title {
+  margin: 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(33,33,33);
+  color: rgb(255,189,0);
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+
+.menu__difficulty-info {
+  color: rgb(33,33,33);
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.menu__btn {
+  background-color: rgb(33,33,33);
+  color: rgb(255,189,0);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu__btn:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.game__timer {
+  background-color: rgb(33,33,33);
+  color: rgb(255,189,0);
+  padding: 5px;
+  border-radius: 5px;
+}
+
